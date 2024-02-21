@@ -7,7 +7,7 @@ c=dict()
 for i in file:
 
     i=i.strip()
-    i=i.lower()
+    # i=i.lower()
 
     words=i.split(" ")
 

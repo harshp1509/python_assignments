@@ -27,7 +27,7 @@ if operation not in ['e','d']:
 shift=int(input("enter the shift value:--"))
 
 try:
-    file=open(filename,'r')
+    file=open("result.txt",'r')
     content=file.read()
 
     if(operation=='e'):
@@ -35,7 +35,7 @@ try:
     elif(operation=='d'):
         result=decrypt(content,shift)
 
-    output_file=open(filename,'w')
+    output_file=open("result2.txt",'w')
     output_file.write(result)
     print("file oeration performed sucessfully.")
 except FileNotFoundError:
