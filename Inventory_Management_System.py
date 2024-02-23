@@ -3,11 +3,10 @@ def add_new_item(inventory):
     quantity=int(input("Enter Quantity:"))
     price=float(input("Enter Price: "))
     category=input("Enter category: ")
-    item={name:{"quantity":quantity,"price":price,"category":category}}
-    inventory.append(item)
+    inventory[name]={"quantity":quantity,"price":price,"category":category}
     print("Item Added successfully!")
 
-def update_items():
+def update_items(inventory):
     n1=input("Enter the name of item whcih you want to update")
     new_quantity=int(input("enter the new quantity for selected otem"))
     new_price=int(input("enter the new price for selected item"))
@@ -19,7 +18,7 @@ def update_items():
         inventory[n1]['price']=new_price
 
     for i,item in enumerate(inventory):
-        if(item["name"]==n1):
+        if(item[name]==n1):
             item['quantity']=new_quantity
             item['price']=new_price
             item['category']=new_category
@@ -39,8 +38,9 @@ def remove_item(inventory):
 
 def view_items(inventory):
     print("\n Inventory List")
-    for i,item in enumerate(inventory):
-        print(f" {i}. {item['name']}--- category:{item['category']}, quantity:{item['quantity']},price: {item['price']}")
+
+    for name, details in inventory.items():
+        print(f"{name}---category: {details['category']}, quautity---{details['quantity']}, price--{details['price']}")
 
 def search_item(inventory):
     n1=input("Enter the name of the item which you want to search")
@@ -62,7 +62,7 @@ def display():
     print("5.---serach item by name in inventory")
     print("6.--- exit")
 
-inventory=[]
+inventory={}
 
 while True:
     display()
